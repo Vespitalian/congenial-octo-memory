@@ -1,9 +1,78 @@
 ---
+title: Final Practice
+subtitle: Using Quarto
+
+author:
+  name: Isaiah
+  affiliation:
+    name: xkcd
+    url: https://xkcd.com
+
 format:
   html:
+    theme: darkly
     embed-resources: true
     main-font: monospace
+lightbox: true
 ---
 
-# Final 
-testy text
+## Sympy
+```{python}
+import sympy
+
+x,y = sympy.symbols("x y")
+sympy.Eq(y, 2*x)
+```
+- This shows an equation using sympy
+
+## Table
+```{python}
+tax_policy = [
+    [415050, .396],
+    [413350, .35],
+    [190150, .33],
+    [91150, .28],
+    [37650, .25],
+    [9275, .15]
+]
+```
+
+## Dataframe
+```{python}
+import pandas as pd
+
+df = pd.DataFrame(tax_policy)
+df.columns = ["Income Cutoff", "Marginal Rate"]
+df
+```
+
+## Graph
+```{python}
+import matplotlib.pyplot as plt
+
+plt.plot(df["Income Cutoff"], df["Marginal Rate"])
+```
+
+## Latex
+##### Super cool LaTex equations
+
+
+`$E=mc^2$`
+
+- Single `$` used to insert equations on inline as seen below.
+
+$E=mc^2$
+
+
+```{=latex}
+$$
+\sum_{i=1}^n x_i 
+$$
+```
+
+- Double `$$` used to insert equations centered.
+
+$$
+\sum_{i=1}^n x_i 
+$$
+
